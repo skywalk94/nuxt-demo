@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   // 全局页面头
   head: {
@@ -36,8 +36,9 @@ export default {
     host: '0.0.0.0'
   },
 
+  // skyline为域名二级要进行配置
   router: {
-    mode: 'hash'
+    base: process.env.NODE_ENV === 'production' ? '/skyline/' : '/'
   },
 
   // 全局CSS
@@ -48,7 +49,8 @@ export default {
 
   //在呈现页面之前运行的插件
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/route'
   ],
 
   //自动导入组件

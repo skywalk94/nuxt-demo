@@ -30,6 +30,7 @@
     },
 
     mounted() {},
+
     methods: {
       async getApi() {
         const res = await axiosApi("getCarouselList", {
