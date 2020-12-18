@@ -21,7 +21,11 @@
         imgList: []
       }
     },
-
+    head() {
+      return {
+        title: "首页",
+      }
+    },
     async asyncData() {
       const res = await axiosApi("getClassSchedule", {}, "post")
       return {

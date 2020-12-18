@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   // 全局页面头
   head: {
@@ -22,7 +22,9 @@ module.exports = {
       href: '/favicon.ico'
     }]
   },
+
   target: 'static',
+
   loading: {
     color: '#409EFF'
   },
@@ -36,7 +38,8 @@ module.exports = {
     host: '0.0.0.0'
   },
 
-  // skyline为域名二级要进行配置
+  // skyline为二级域名要进行配置
+  // 如果是一级域名设置为./
   router: {
     base: process.env.NODE_ENV === 'production' ? '/skyline/' : '/'
   },
@@ -44,7 +47,7 @@ module.exports = {
   // 全局CSS
   css: [
     'element-ui/lib/theme-chalk/index.css',
-    './assets/index.css'
+    './assets/default.css'
   ],
 
   //在呈现页面之前运行的插件
