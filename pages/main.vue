@@ -28,9 +28,7 @@
         imgList: res.data
       }
     },
-    methods: {
-
-    }
+    methods: {}
   }
 
 </script>

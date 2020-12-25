@@ -1,8 +1,7 @@
 export default {
-  // Global page headers (https://go.nuxtjs.dev/config-head)
   // 全局页面头
   head: {
-    title: 'Nuxt标题',
+    title: 'wePanda',
     meta: [{
         charset: 'utf-8'
       },
@@ -29,9 +28,7 @@ export default {
     color: '#409EFF'
   },
 
-  generate: {
-    fallback: false
-  },
+  generate: {},
 
   server: {
     port: 3000,
@@ -53,7 +50,7 @@ export default {
   //在呈现页面之前运行的插件
   plugins: [
     '@/plugins/element-ui',
-    '@/plugins/route'
+    '@/plugins/router'
   ],
 
   //自动导入组件

@@ -1,7 +1,8 @@
 <template>
   <div class="box">
     <el-button type="primary" @click="getApi()">点击获取api</el-button>
-    <el-button type="primary" @click="goMain()">跳转到main</el-button>
+    <el-button type="primary" @click="goMain()">函数跳转到main</el-button>
+    <nuxt-link to="/main">组件跳转到main</nuxt-link>
     <div v-for="(item,index) in schoolList" :key="index">
       <img :src="item.imgurl" alt="">
       {{item.name}}
@@ -21,11 +22,13 @@
         imgList: []
       }
     },
+
     head() {
       return {
         title: "首页",
       }
     },
+
     async asyncData() {
       const res = await axiosApi("getClassSchedule", {}, "post")
       return {
