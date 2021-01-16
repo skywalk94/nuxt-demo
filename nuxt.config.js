@@ -1,13 +1,21 @@
 export default {
   // 全局页面头
   head: {
-    title: 'wePanda',
+    title: 'Nuxt全局标题',
     meta: [{
         charset: 'utf-8'
       },
       {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+      },
+      {
+        name: "author",
+        content: "wePanda"
+      },
+      {
+        name: "keywords",
+        content: "Nuxt编写示例"
       },
       {
         hid: 'description',
@@ -43,14 +51,13 @@ export default {
 
   // 全局CSS
   css: [
-    'element-ui/lib/theme-chalk/index.css',
     './assets/default.css'
   ],
 
   //在呈现页面之前运行的插件
   plugins: [
-    '@/plugins/element-ui',
-    '@/plugins/router'
+    '@/plugins/router',
+    '@/plugins/vant'
   ],
 
   //自动导入组件
@@ -64,6 +71,13 @@ export default {
 
   // 构建配置
   build: {
-    vendor: ['element-ui', 'axios']
+    vendor: ['axios'],
+    postcss: [
+      require('postcss-px2rem-exclude')({
+        remUnit: 37.5, // 设计图为375 * height
+        remPrecision: 2, // rem的小数点后位数
+        exclude: /node_modules|folder_name/i
+      })
+    ],
   }
 }

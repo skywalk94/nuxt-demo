@@ -1,8 +1,5 @@
 import axios from "axios";
 import qs from "qs";
-import {
-  Message
-} from 'element-ui';
 
 // 读取环境配置获取接口地址
 axios.defaults.baseURL = "http://hplqytest.suoluomei.cn/index.php?s=/hfs/Api/";
@@ -34,7 +31,6 @@ axios.interceptors.response.use(
   },
   error => {
     // 错误提示
-    Message.error('服务器请求失败');
   }
 );
 
@@ -60,7 +56,7 @@ export default function axiosApi(type, params, method) {
         if (res.data.errcode == 0) {
           resolve(res.data)
         } else {
-          Message.error(res.data.msg);
+          // 接口错误提示
         }
       })
       .catch(err => {

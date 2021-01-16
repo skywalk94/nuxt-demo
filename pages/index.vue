@@ -1,7 +1,7 @@
 <template>
   <div class="box">
-    <el-button type="primary" @click="getApi()">点击获取api</el-button>
-    <el-button type="primary" @click="goMain()">函数跳转到main</el-button>
+    <van-button type="primary" @click="getApi()">点击获取api</van-button>
+    <van-button type="primary" @click="goMain()">函数跳转到main</van-button>
     <nuxt-link to="/main">组件跳转到main</nuxt-link>
     <div v-for="(item,index) in schoolList" :key="index">
       <img :src="item.imgurl" alt="">
@@ -57,14 +57,14 @@
 
 </script>
 
-<style scoped>
-  .title {
+<style lang="less" scoped>
+  .box {
     color: cadetblue;
     font-size: 30px;
-  }
 
-  .banner {
-    width: 300px;
+    .banner {
+      width: 300px;
+    }
   }
 
 </style>
