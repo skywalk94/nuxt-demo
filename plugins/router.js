@@ -1,7 +1,8 @@
 export default ({
   app
 }) => {
-  app.router.afterEach((to, from, next) => {
-    // console.log(to.name)
+  app.router.beforeEach((to, from, next) => {
+    next()
+    // console.log(to)
   })
 }

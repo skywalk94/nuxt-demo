@@ -3,12 +3,17 @@
     <div v-for="(item,index) in imgList" :key="'i'+index">
       <img class="banner" :src="item.imgurl" alt="">
     </div>
+    <tabbar active=1></tabbar>
   </div>
 </template>
 
 <script>
-  import axiosApi from "../plugins/axios";
+  import axiosApi from "../../plugins/axios";
+  import tabbar from '../../components/tabbar.vue'
   export default {
+    components: {
+      tabbar
+    },
     data() {
       return {
         imgList: []
@@ -32,8 +37,7 @@
   }
 
 </script>
-
-<style scoped>
+<style lang="less" scoped>
   .banner {
     width: 300px;
   }

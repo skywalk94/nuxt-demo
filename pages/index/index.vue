@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <van-button type="primary" @click="getApi()">点击获取api</van-button>
-    <van-button type="primary" @click="goMain()">函数跳转到main</van-button>
+    <van-button type="primary" @click="skipPath()">函数跳转到detail</van-button>
     <nuxt-link to="/main">组件跳转到main</nuxt-link>
     <div v-for="(item,index) in schoolList" :key="index">
       <img :src="item.imgurl" alt="">
@@ -10,12 +10,17 @@
     <div v-for="(item,index) in imgList" :key="'i'+index">
       <img class="banner" :src="item.imgurl" alt="">
     </div>
+    <tabbar active=0></tabbar>
   </div>
 </template>
 
 <script>
-  import axiosApi from "../plugins/axios";
+  import axiosApi from "../../plugins/axios";
+  import tabbar from '../../components/tabbar.vue'
   export default {
+    components: {
+      tabbar
+    },
     data() {
       return {
         schoolList: [],
@@ -47,9 +52,9 @@
         this.imgList = res.data
       },
 
-      goMain() {
+      skipPath() {
         this.$router.push({
-          path: './main',
+          path: './detail',
         });
       }
     }
@@ -57,14 +62,5 @@
 
 </script>
 
-<style lang="less" scoped>
-  .box {
-    color: cadetblue;
-    font-size: 30px;
-
-    .banner {
-      width: 300px;
-    }
-  }
-
+<style src="./index.less" lang="less" scoped>
 </style>

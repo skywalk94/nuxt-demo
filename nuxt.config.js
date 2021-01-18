@@ -46,7 +46,22 @@ export default {
   // skyline为二级域名要进行配置
   // 如果是一级域名设置为./
   router: {
-    base: process.env.NODE_ENV === 'production' ? '/skyline/' : '/'
+    base: process.env.NODE_ENV === 'production' ? '/skyline/' : '/',
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: '/',
+        name: 'index',
+        component: resolve(__dirname, 'pages/index/index.vue'),
+      }, {
+        path: '/main',
+        name: 'main',
+        component: resolve(__dirname, 'pages/main/main.vue')
+      }, {
+        path: '/detail',
+        name: 'detail',
+        component: resolve(__dirname, 'pages/detail/detail.vue')
+      })
+    }
   },
 
   // 全局CSS
