@@ -55,7 +55,10 @@ export default {
   ],
 
   //在呈现页面之前运行的插件
-  plugins: [
+  plugins: [{
+      src: '@/plugins/lib-flexible',
+      ssr: false
+    },
     '@/plugins/router',
     '@/plugins/vant'
   ],
@@ -72,12 +75,14 @@ export default {
   // 构建配置
   build: {
     vendor: ['axios'],
-    postcss: [
-      require('postcss-px2rem-exclude')({
-        remUnit: 37.5, // 设计图为375 * height
-        remPrecision: 2, // rem的小数点后位数
-        exclude: /node_modules|folder_name/i
-      })
-    ],
+    postcss: {
+      plugins: {
+        'postcss-px2rem-exclude': {
+          remUnit: 75, // 设计图为750 * height
+          remPrecision: 2, // rem的小数点后位数
+          exclude: /node_modules|folder_name/i //
+        }
+      }
+    },
   }
 }
