@@ -3,7 +3,7 @@
     <div v-for="(item,index) in imgList" :key="'i'+index">
       <img class="banner" :src="item.imgurl" alt="">
     </div>
-    <tabbar active=1></tabbar>
+    <tabbar :active="active"></tabbar>
   </div>
 </template>
 
@@ -11,11 +11,13 @@
   import axiosApi from "../../plugins/axios";
   import tabbar from '../../components/tabbar.vue'
   export default {
+    name: 'master',
     components: {
       tabbar
     },
     data() {
       return {
+        active: 1,
         imgList: []
       }
     },
@@ -33,6 +35,11 @@
         imgList: res.data
       }
     },
+
+    activated() {
+      this.active = 1
+    },
+
     methods: {}
   }
 

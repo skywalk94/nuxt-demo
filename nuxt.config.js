@@ -1,7 +1,7 @@
 export default {
   // 全局页面头
   head: {
-    title: 'Nuxt全局标题',
+    title: 'wePanda',
     meta: [{
         charset: 'utf-8'
       },
@@ -26,7 +26,7 @@ export default {
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
-      href: '/favicon.ico'
+      href: 'https://sucai.suoluomei.cn/sucai_zs/images/20210120104606-2.png'
     }]
   },
 
@@ -64,7 +64,7 @@ export default {
     }
   },
 
-  // 全局CSS
+  //全局CSS
   css: [
     './assets/default.css'
   ],

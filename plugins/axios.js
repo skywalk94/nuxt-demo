@@ -23,33 +23,26 @@ axios.interceptors.request.use(
 
 axios.interceptors.response.use(
   response => {
-    if (response.status == 200) {
-      return Promise.resolve(response);
-    } else {
-      return Promise.reject(response);
-    }
+    return response;
   },
   error => {
-    // 错误提示
+    // 响应错误提示
+    return Promise.reject(error);
   }
 );
 
 export default function axiosApi(type, params, method) {
   const api_key = "195a9b99ea7a0d259151b5c412bb631b"
   const sign = "17a1920fdc3c3c25d1bf7c6dd724f5cf"
-  var data = method == "post" ? qs.stringify(
-    Object.assign({
-      api_key: api_key,
-      sign: sign
-    }, params)
-  ) : Object.assign({
+  var value = {
     api_key: api_key,
     sign: sign
-  }, params)
+  }
+  var data = method == "post" ? qs.stringify(Object.assign(value, params)) : Object.assign(value, params)
   return new Promise((resolve, reject) => {
     axios({
-        url: type,
         method: method,
+        url: type,
         data: data
       })
       .then(res => {

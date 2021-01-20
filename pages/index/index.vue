@@ -10,7 +10,7 @@
     <div v-for="(item,index) in imgList" :key="'i'+index">
       <img class="banner" :src="item.imgurl" alt="">
     </div>
-    <tabbar active=0></tabbar>
+    <tabbar :active="active"></tabbar>
   </div>
 </template>
 
@@ -18,27 +18,31 @@
   import axiosApi from "../../plugins/axios";
   import tabbar from '../../components/tabbar.vue'
   export default {
+    name: 'index',
     components: {
       tabbar
     },
     data() {
       return {
         schoolList: [],
-        imgList: []
+        imgList: [],
+        active: 0
       }
     },
-
     head() {
       return {
         title: "首页",
       }
     },
-
     async asyncData() {
       const res = await axiosApi("getClassSchedule", {}, "post")
       return {
         schoolList: res.data.top_four
       }
+    },
+
+    activated() {
+      this.active = 0
     },
 
     mounted() {},

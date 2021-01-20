@@ -35,15 +35,10 @@
       }
     },
 
-    // 对active进行监听赋值
-    watch: {
-      active: {
-        immediate: true,
-        handler(value) {
-          this.isAct = parseInt(value)
-        }
-      }
-    }
+    // 对active进行赋值
+    activated() {
+      this.isAct = this.active
+    },
   };
 
 </script>
