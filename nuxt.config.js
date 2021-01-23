@@ -50,7 +50,7 @@ export default {
     extendRoutes(routes, resolve) {
       routes.push({
         path: '/',
-        name: 'index',
+        name: '',
         component: resolve(__dirname, 'pages/index/index.vue'),
       }, {
         path: '/main',
