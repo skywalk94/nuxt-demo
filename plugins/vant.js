@@ -1,5 +1,5 @@
 import Vue from "vue";
-import 'vant/lib/index.css';
+// import 'vant/lib/index.less'
 import {
   Button,
   Tabbar,

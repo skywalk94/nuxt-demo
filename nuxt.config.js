@@ -46,22 +46,7 @@ export default {
   // skyline为二级域名要进行配置
   // 如果是一级域名设置为./
   router: {
-    base: process.env.NODE_ENV === 'production' ? '/skyline/' : '/',
-    extendRoutes(routes, resolve) {
-      routes.push({
-        path: '/',
-        name: '',
-        component: resolve(__dirname, 'pages/index/index.vue'),
-      }, {
-        path: '/main',
-        name: 'main',
-        component: resolve(__dirname, 'pages/main/main.vue')
-      }, {
-        path: '/detail',
-        name: 'detail',
-        component: resolve(__dirname, 'pages/detail/detail.vue')
-      })
-    }
+    base: process.env.NODE_ENV === 'production' ? '/skyline/' : '/'
   },
 
   //全局CSS
@@ -74,8 +59,14 @@ export default {
       src: '@/plugins/lib-flexible',
       ssr: false
     },
-    '@/plugins/router',
-    '@/plugins/vant'
+    {
+      src: '@/plugins/router',
+      ssr: true
+    },
+    {
+      src: '@/plugins/vant',
+      ssr: true
+    }
   ],
 
   //自动导入组件
@@ -99,5 +90,20 @@ export default {
         }
       }
     },
+    transpile: [/vant.*?less/],
+    babel: {
+      plugins: [
+        [
+          'import',
+          {
+            libraryName: 'vant',
+            style: (name) => {
+              return `${name}/style/less.js`
+            }
+          },
+          'vant'
+        ]
+      ]
+    }
   }
 }
