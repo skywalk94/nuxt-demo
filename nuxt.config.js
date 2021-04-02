@@ -80,7 +80,6 @@ export default {
 
   // 构建配置
   build: {
-    vendor: ['axios'],
     postcss: {
       plugins: {
         'postcss-px2rem-exclude': {

@@ -4,17 +4,16 @@
   </div>
 </template>
 <script>
-  export default {
-    name: "detail",
-    data() {
-      return {};
-    },
-    mounted() {
-      console.log(this.$route.query.id)
-    },
-    methods: {}
-  };
-
+export default {
+  name: "detail",
+  data() {
+    return {};
+  },
+  mounted() {
+    console.log(this.$route.query.id);
+  },
+  methods: {},
+};
 </script>
 <style lang="less" scoped>
 </style>
