@@ -10,7 +10,7 @@ export default {
     return {};
   },
   mounted() {
-    console.log(this.$route.query.id);
+    console.log(this.$route.params.id);
   },
   methods: {},
 };

@@ -2,16 +2,18 @@
   <div class="box">
     <van-button type="primary" @click="getApi()">点击获取api</van-button>
     <van-button type="primary" @click="skipPath()">函数跳转到detail</van-button>
-    <nuxt-link :to="{ path: '/detail', query: { id: 456 } }"
-      >组件跳转到detail</nuxt-link
-    >
-    <div v-for="(item, index) in schoolList" :key="index">
-      <img :src="item.imgurl" alt />
-      {{ item.name }}
-    </div>
-    <div v-for="(item, index) in imgList" :key="'i' + index">
-      <img class="banner" :src="item.imgurl" alt />
-    </div>
+    <nuxt-link :to="{ path: '/detail/123' }">组件跳转到detail</nuxt-link>
+    <ul v-for="(item, index) in schoolList" :key="index">
+      <li>
+        <img :src="item.imgurl" :alt="item.name" />
+        {{ item.name }}
+      </li>
+    </ul>
+    <ul v-for="(item, index) in imgList" :key="'i' + index">
+      <li>
+        <img class="banner" :src="item.imgurl" :alt="item.name" />
+      </li>
+    </ul>
     <tabbar :active="active"></tabbar>
   </div>
 </template>
@@ -61,10 +63,7 @@ export default {
 
     skipPath() {
       this.$router.push({
-        path: "../detail",
-        query: {
-          id: 123,
-        },
+        path: "../detail/123",
       });
     },
   },

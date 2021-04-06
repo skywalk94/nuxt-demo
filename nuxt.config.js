@@ -20,7 +20,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: ''
+        content: 'Nuxt编写示例啦啦啦'
       }
     ],
     link: [{
