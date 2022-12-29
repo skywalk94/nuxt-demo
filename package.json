@@ -1,24 +1,23 @@
 {
-  "name": "nuxtdemo",
-  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  },
-  "dependencies": {
-    "axios": "^0.21.0",
-    "core-js": "^3.6.5",
-    "less": "^4.1.0",
-    "less-loader": "^7.2.1",
-    "lib-flexible": "^0.3.2",
-    "nuxt": "^2.14.12",
-    "postcss-px2rem-exclude": "0.0.6",
-    "vant": "^2.12.3"
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "babel-plugin-import": "^1.13.3"
+    "nuxt": "3.0.0",
+    "unplugin-auto-import": "^0.12.1",
+    "unplugin-icons": "^0.14.15",
+    "unplugin-vue-components": "^0.22.12"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.6",
+    "axios": "^1.2.1",
+    "element-plus": "^2.2.27",
+    "pinia": "^2.0.28",
+    "sass": "^1.57.1"
   }
 }
