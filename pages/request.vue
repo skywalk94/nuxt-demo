@@ -7,7 +7,7 @@ import { ref } from "vue"
 import request from "~/utils/request"
 
 const list = ref([])
-const res = await request('/orgs/nuxt/repos')
-list.value = res.data
+const { data } = await request("/orgs/nuxt/repos", { method: "GET", query: { id: 1 } })
+list.value = data.value
 
 </script>

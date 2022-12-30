@@ -1,5 +1,5 @@
 <template>
-    <el-button @click="open">按钮</el-button>
+    <el-button type="primary" @click="open">按钮</el-button>
 </template>
 <script setup>
 const open = () => {

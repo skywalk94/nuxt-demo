@@ -1,30 +1,28 @@
-import axios from "axios"
+const fetchConfig = {
+    baseURL: "https://api.github.com"
+}
 
-const service = axios.create({
-    baseURL: "https://api.github.com",
-    timeout: 10000,
-})
-
-service.interceptors.request.use(
-    config => {
-        // 模拟用户登录后携带登录信息
-        const token = process.client ? useCookie("token") : {}
-        token.value = "userToken"
-        config.headers.Authorization = token.value
-        return config
-    },
-    error => {
-        return Promise.error(error)
-    }
-)
-
-service.interceptors.response.use(
-    success => {
-        return Promise.resolve(success)
-    },
-    error => {
-        return Promise.reject(error)
-    }
-)
-
-export default service
+export default async (url, options = {}) => {
+    options = { ...fetchConfig, ...options }
+    const res = await useFetch(url, {
+        ...options,
+        onRequest({ options }) {
+            options.headers = options.headers || {}
+            const token = useCookie("token")
+            token.value = "0123456789" //模拟用户登录完成后获取token
+            if (token.value) {
+                options.headers.authorization = token.value
+            }
+        },
+        onRequestError(err) {
+            // 处理请求前失败回调
+        },
+        onResponse(res) {
+            // 处理请求成功回调
+        },
+        onResponseError(err) {
+            // 处理请求后失败回调
+        }
+    })
+    return res
+}

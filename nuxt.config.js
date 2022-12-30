@@ -15,8 +15,9 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '~/assets/css/global.css',
+    '~/assets/style/default.css',
     'element-plus/theme-chalk/src/index.scss',
+    'element-plus/theme-chalk/src/dark/css-vars.scss'
   ],
 
   build: {
@@ -26,6 +27,13 @@ export default defineNuxtConfig({
   modules: ['@pinia/nuxt'],
 
   vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "~/assets/style/element.scss";',
+        },
+      },
+    },
     plugins: [
       AutoImport({
         resolvers: [ElementPlusResolver({ importStyle: false })],
