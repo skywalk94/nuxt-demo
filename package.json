@@ -10,7 +10,6 @@
   "devDependencies": {
     "nuxt": "3.0.0",
     "unplugin-auto-import": "^0.12.1",
-    "unplugin-icons": "^0.14.15",
     "unplugin-vue-components": "^0.22.12"
   },
   "dependencies": {
