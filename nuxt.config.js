@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   css: [
     '~/assets/style/default.css',
     'element-plus/theme-chalk/src/index.scss',
-    'element-plus/theme-chalk/src/dark/css-vars.scss'
+    // 'element-plus/theme-chalk/src/dark/css-vars.scss'
   ],
 
   build: {
