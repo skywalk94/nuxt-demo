@@ -8,13 +8,13 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.6.3",
+    "nuxt": "^3.6.5",
     "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.1"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
-    "element-plus": "^2.3.8",
-    "sass": "^1.63.6"
+    "element-plus": "^2.3.9",
+    "sass": "^1.66.1"
   }
 }

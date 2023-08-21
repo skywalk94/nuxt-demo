@@ -3,11 +3,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
 import request from "~/utils/request"
 
-const list = ref([])
-const { data } = await request("/orgs/nuxt/repos", { method: "GET", query: { id: 1 } })
-list.value = data.value
-
+const { data: list } = await request("/orgs/nuxt/repos", { method: "GET", query: { id: 1 } })
 </script>
